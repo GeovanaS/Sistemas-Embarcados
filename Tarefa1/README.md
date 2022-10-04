@@ -1,4 +1,4 @@
-##Tarefa 1
+# Tarefa 1
 
 Objetivo: implementar um sistema microcontrolado que mostra a hora e o valor de uma variável analógica. Para
 isso usar os seguintes recursos
