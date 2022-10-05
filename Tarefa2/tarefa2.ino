@@ -1,7 +1,9 @@
-#define pinMot1A 13
-#define pinMot1B 12
-#define pinMot2A 11
-#define pinMot2B 10
+//Amélia, Geovana, Gustavo, Maria
+
+#define pinMot1A 13 // a 
+#define pinMot2A 12 // a 
+#define pinMot1B 11 // b
+#define pinMot2B 10 // b
 
 int valorSensor = 0;
 
@@ -15,12 +17,13 @@ void setup()
   pinMode(pinMot2B,OUTPUT);
 }
 
+
 void loop()
 {
   valorSensor = analogRead(A0);
   Serial.print(valorSensor);
   Serial.println('\t');
-  delay(1000); // Wait for 1000 millisecond(s)
+  //delay(1000); // Wait for 1000 millisecond(s)
 
   if (valorSensor < 200){
       avanca();
@@ -31,38 +34,42 @@ void loop()
   }else{ //valorSensor>600
      moveEsq();
   } 
-  delay(1000); // Wait for 1000 millisecond(s)
+  //delay(1000); // Wait for 1000 millisecond(s)
 }
 
 
-void avanca(){
+void retrocede(){
   digitalWrite(pinMot1A,HIGH);
-  digitalWrite(pinMot1B,LOW);
-  digitalWrite(pinMot2A,HIGH);
+  digitalWrite(pinMot2A,LOW);
+  
+  digitalWrite(pinMot1B,HIGH);
   digitalWrite(pinMot2B,LOW);
   delay(1000);
 }
 
-void retrocede(){
+void avanca(){
   digitalWrite(pinMot1A,LOW);
-  digitalWrite(pinMot1B,HIGH);
-  digitalWrite(pinMot2A,LOW);
-  digitalWrite(pinMot2B,HIGH);
-  delay(1000);
-}
-
-void moveDir(){
-  digitalWrite(pinMot1A,HIGH);
+  digitalWrite(pinMot2A,HIGH);
+  
   digitalWrite(pinMot1B,LOW);
-  digitalWrite(pinMot2A,LOW);
   digitalWrite(pinMot2B,HIGH);
   delay(1000);
 }
 
 void moveEsq(){
+  digitalWrite(pinMot1A,HIGH);
+  digitalWrite(pinMot2A,LOW);
+
+  digitalWrite(pinMot1B,LOW);
+  digitalWrite(pinMot2B,HIGH);
+  delay(1000);
+}
+
+void moveDir(){
   digitalWrite(pinMot1A,LOW);
-  digitalWrite(pinMot1B,HIGH);
   digitalWrite(pinMot2A,HIGH);
+
+  digitalWrite(pinMot1B,HIGH);
   digitalWrite(pinMot2B,LOW);
   delay(1000);
 }
